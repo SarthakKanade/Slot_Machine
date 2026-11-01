@@ -1,0 +1,47 @@
+# Unity generated files
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+
+# Visual Studio / VSCode / Rider temporary files
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build artifacts (Allow WebGL submission folder)
+/[Bb]uilds/
+/[Bb]uild/
+!/[Bb]uild/WebGL/
+!/[Bb]uild/WebGL/**
+
+# Internal reference material (do not commit reference game)
+Assets/reference_slot_game/
+Assets/reference_slot_game.meta
