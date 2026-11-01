@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c871ada6aa085bc4ba9829dfcc63b01d, type: 3}
   m_Name: PaytableConfig
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Data.PaytableConfig
+  m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.Data.PaytableConfig
   symbols:
   - {fileID: 11400000, guid: c357829f3f2ab3d4db5eedeea05230e4, type: 2}
   - {fileID: 11400000, guid: 254e4cdd14c41a6488d73b1a00528e8d, type: 2}

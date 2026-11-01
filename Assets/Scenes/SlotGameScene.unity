@@ -752,7 +752,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e56d642ecc9a5f74894185af09f0edae, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.UI.SlotHandleController
+  m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.UI.SlotHandleController
   slotMachineController: {fileID: 1038896711}
   animator: {fileID: 216475250}
   handleArmRect: {fileID: 1044026962}
@@ -2239,7 +2239,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03523b52944883c46bedb2fb91d6c97b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.UI.WinPopupUI
+  m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.UI.WinPopupUI
   popupContainer: {fileID: 595240520}
   popupBannerImage: {fileID: 1988910785}
   titleText: {fileID: 1697759159}
@@ -2277,7 +2277,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86f5aa1c09a86ed4ea59352d07624f87, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Audio.AudioManager
+  m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.Audio.AudioManager
   sfxSource: {fileID: 0}
   musicSource: {fileID: 0}
   buttonClickClip: {fileID: 0}
@@ -2863,7 +2863,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 619b22bfb06cb554eb5e8cae600d5fda, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reel.SlotReelController
+  m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.Reel.SlotReelController
   reels:
   - {fileID: 1830522658}
   - {fileID: 1267391655}
@@ -3463,7 +3463,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd76d493f604740448724ad494ca0f90, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Core.SlotMachineController
+  m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.Core.SlotMachineController
   paytableConfig: {fileID: 11400000, guid: db529b1eedd1daa43879f3d4d4d3b2f6, type: 2}
   reelController: {fileID: 787160454}
   uiManager: {fileID: 1655430013}
@@ -4021,7 +4021,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f854803e5ebcc984699caa4d27e2a29b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reel.ReelStrip
+  m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.Reel.ReelStrip
   reelIndex: 2
   visibleRowCount: 3
   symbolHeight: 58
@@ -4779,7 +4779,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f854803e5ebcc984699caa4d27e2a29b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reel.ReelStrip
+  m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.Reel.ReelStrip
   reelIndex: 1
   visibleRowCount: 3
   symbolHeight: 58
@@ -5077,7 +5077,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e7abd1b9ec589e448814de83f1cff68, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.UI.PaytableUI
+  m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.UI.PaytableUI
   paytablePanel: {fileID: 1453961668}
   closeButton: {fileID: 1755786134}
   symbolsContentParent: {fileID: 126083358}
@@ -5872,7 +5872,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68bb93bb1cccf53408db244abf0fc6ec, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.UI.UIManager
+  m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.UI.UIManager
   balanceText: {fileID: 312563568}
   currentBetText: {fileID: 2131181675}
   lastWinText: {fileID: 236627812}
@@ -7266,7 +7266,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f854803e5ebcc984699caa4d27e2a29b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reel.ReelStrip
+  m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.Reel.ReelStrip
   reelIndex: 0
   visibleRowCount: 3
   symbolHeight: 58
@@ -7410,7 +7410,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3063172094831428878, guid: f354c2457fc6bde48935d50aa9070811, type: 3}
+  m_Sprite: {fileID: 1849312081060556512, guid: dc43e32799af14898ab4812f7f9e0de9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
