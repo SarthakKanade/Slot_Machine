@@ -97,7 +97,7 @@ Open your browser to `http://localhost:8080` to play immediately!
 ## 🎁 Bonus Features & Creativity
 
 1. **Interactive Mechanical Lever**:
-   - 2D/3D animated cabinet handle arm supporting click, drag, and release gestures with spring-loaded physical return and sound.
+   - 2D/3D animated cabinet handle arm supporting click, drag, and release gestures with spring-loaded physical return and audio.
 2. **Wild Joker Symbol**:
    - Substitutes for any regular paying symbol to complete winning lines.
 3. **Scatter Free Spins Bonus**:
@@ -106,6 +106,14 @@ Open your browser to `http://localhost:8080` to play immediately!
    - After any standard win, players can risk their payout in a classic Red vs. Black card gamble. Correct guesses double the payout (up to 5 consecutive rounds).
 5. **Auto-Spin Automation**:
    - Hands-free auto-spin mode with configurable pacing and automatic pause on feature triggers or insufficient balance.
+6. **Progressive Jackpot Ticker**:
+   - Real-time accumulator starting at 10,000 credits that grows with every spin bet. Hitting 3 Lucky Sevens on the Center Line triggers the Jackpot celebration!
+7. **⚡ Turbo Mode**:
+   - Toggleable high-speed play mode (HUD button & 'T' hotkey) speeding up reel motion and stops by 2.5x.
+8. **Dynamic Neon Payline Laser Traces**:
+   - Real-time vector lines connecting matching symbols across the reels with flashing side indicators.
+9. **Physical Screen Shake & 2D Golden Coin Shower**:
+   - Cabinet impact vibration on reel landings and celebratory gold coin fountains on Big Win, Mega Win, and Jackpot hits.
 
 ---
 
