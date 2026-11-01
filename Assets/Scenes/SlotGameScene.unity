@@ -278,8 +278,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 95}
-  m_SizeDelta: {x: 1000, y: 340}
+  m_AnchoredPosition: {x: 0, y: 155}
+  m_SizeDelta: {x: 1100, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &126083359
 MonoBehaviour:
@@ -301,10 +301,10 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 320, y: 95}
-  m_Spacing: {x: 25, y: 20}
+  m_CellSize: {x: 345, y: 115}
+  m_Spacing: {x: 20, y: 15}
   m_Constraint: 1
-  m_ConstraintCount: 2
+  m_ConstraintCount: 3
 --- !u!1 &145817509
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,8 +460,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 310}
-  m_SizeDelta: {x: 1000, y: 60}
+  m_AnchoredPosition: {x: 0, y: 355}
+  m_SizeDelta: {x: 900, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209262919
 MonoBehaviour:
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=#FFE082><b>RULES</b></color>
+  m_text: "<size=40><b><color=#FFF8E1>SALOON RULES & PAYTABLE</color></b></size>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -510,8 +510,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38
-  m_fontSizeBase: 38
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 4
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1599,7 +1599,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1150, y: 780}
+  m_SizeDelta: {x: 1220, y: 840}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &376233273
 MonoBehaviour:
@@ -1621,7 +1621,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6351617318852302439, guid: ce928f43a31bc5741af9ac9abd62b71f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e5a7102e3b246a4892c90a14f77c381, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2555,8 +2555,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: -22}
-  m_SizeDelta: {x: 160, y: 60}
+  m_AnchoredPosition: {x: 45, y: -20}
+  m_SizeDelta: {x: 210, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &715384044
 MonoBehaviour:
@@ -3394,8 +3394,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchoredPosition: {x: -105, y: 0}
+  m_SizeDelta: {x: 88, y: 88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &980757377
 MonoBehaviour:
@@ -3927,15 +3927,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12, g: 0.12, b: 0.18, a: 0.95}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 5d836e14749f484eb3b1c85317aa02df, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4417,8 +4417,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -230}
-  m_SizeDelta: {x: 1040, y: 200}
+  m_AnchoredPosition: {x: 0, y: -180}
+  m_SizeDelta: {x: 1100, y: 320}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1234854569
 MonoBehaviour:
@@ -4433,15 +4433,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08, g: 0.08, b: 0.14, a: 0.95}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 3f8b919246a4892c90a14f77c381c822, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5075,7 +5075,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1453961668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e7abd1b9ec589e448814de83f1cff68, type: 3}
+  m_Script: {fileID: 11500000, guid: 51872ce7045ef480f9f04f59eea2d070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SlotMachine.Runtime::SlotMachine.UI.PaytableUI
   paytablePanel: {fileID: 1453961668}
@@ -6439,8 +6439,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 30}
-  m_SizeDelta: {x: 160, y: 35}
+  m_AnchoredPosition: {x: 45, y: 26}
+  m_SizeDelta: {x: 210, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697961955
 MonoBehaviour:
@@ -6677,7 +6677,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<line-height=130%><color=#FFE082><b>[1] 5 FIXED PAYLINES</b></color>\n- Paylines 1, 2 & 3 run horizontally across Top, Center, & Bottom rows.\n- Paylines 4 & 5 run diagonally (Top-Left to Bottom-Right & Bottom-Left to Top-Right).\n- All line combinations evaluate strictly <b>Left-to-Right</b> starting from Reel 1.\n\n<color=#FFE082><b>[2] WILD JOKER SUBSTITUTION</b></color>\n- Substitutes for all standard symbols to bridge and complete winning paylines.\n- 3 Wild Jokers aligned on any payline award the top fixed jackpot of <b>100x Bet</b>.\n\n<color=#FFE082><b>[3] STAR SCATTER & FREE SPINS</b></color>\n- 3 Star Scatters appearing anywhere on the 3x3 grid award <b>10 FREE SPINS</b>.\n- All winnings during the Free Spins bonus mode receive an active <b>2x Win Multiplier</b>.\n\n<color=#FFE082><b>[4] DYNAMIC PROGRESSIVE JACKPOT</b></color>\n- A portion of every spin feeds the live progressive jackpot pool atop the cabinet.\n- Hitting three top symbols on the center payline triggers the full progressive pot!\n\n<color=#FFE082><b>[5] TURBO MODE & CONTROLS</b></color>\n- Press <b>[T]</b> or tap Turbo to trigger high-speed reel spins with immediate feedback.\n- Press <b>[Space]</b> or pull the mechanical lever arm to spin."
+  m_text: "<line-height=130%><color=#FFE082><b>[1] 5 FIXED PAYLINES</b></color>
+- Lines 1, 2, 3: Horizontal (Top, Center, Bottom). Lines 4, 5: Diagonals.
+- All winning combinations evaluate strictly <b>Left-to-Right</b> starting from Reel 1.
+
+<color=#FFE082><b>[2] WILD JOKER SUBSTITUTION</b></color>
+- Bridges and substitutes for all normal symbols with a top <b>100x</b> 3-match jackpot!
+
+<color=#FFE082><b>[3] STAR SCATTER & FREE SPINS</b></color>
+- 3 Scatters anywhere award <b>10 FREE SPINS</b> with an active <b>2x Win Multiplier</b>.
+
+<color=#FFE082><b>[4] DYNAMIC PROGRESSIVE JACKPOT</b></color>
+- Every spin feeds the live pot; 3 top symbols on the center row win the whole pool!
+
+<color=#FFE082><b>[5] TURBO MODE & CONTROLS</b></color>
+- Press <b>[T]</b> for Turbo Mode. Press <b>[Space]</b> or pull the lever to spin."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6704,8 +6718,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 17
+  m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7007,8 +7021,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 490, y: 310}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 540, y: 355}
+  m_SizeDelta: {x: 56, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1755786132
 MonoBehaviour:
@@ -7030,7 +7044,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3020089450311916440, guid: 99cd798f2c06d044780caa169ea664cd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a9c301146a4892c90a14f77c381dead, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
