@@ -483,7 +483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=#FFD700><b>PAYTABLE & RULES</b></color>
+  m_text: <color=#FFE082><b>RULES</b></color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3205,7 +3205,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PAYTABLE
+  m_text: RULES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6677,13 +6677,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><color=#FFD700>5 FIXED PAYLINES:</color></b> Top, Center, Bottom, Diagonal
-    Down, Diagonal Up.\n\u2022 All line wins pay from <b>Left to Right</b> on adjacent
-    reels starting from Reel 1.\n\u2022 <b><color=#FFD700>LUCKY SEVEN</color></b>
-    is the top Jackpot paying symbol (50x for 3, 5x for 2).\n\u2022 Line payouts:
-    <b>Triple BAR</b> (25x), <b>Golden Bell</b> (15x), <b>Cherries</b> (8x).\n\u2022
-    Winnings = <b>Symbol Multiplier \xD7 Current Bet</b> summed across all 5 winning
-    paylines."
+  m_text: "<b><color=#FFD54F>LINES:</color></b> 5 Fixed Classic Paylines (Top, Center, Bottom, Diagonal Down, Diagonal Up).
+• <b><color=#FFD54F>EVALUATION:</color></b> Payouts calculate strictly from <b>Left to Right</b> starting on Reel 1.
+• <b><color=#FFD54F>WILD JOKER:</color></b> Substitutes for all normal symbols with a <b>100x</b> 3-match jackpot!
+• <b><color=#FFD54F>STAR SCATTER:</color></b> 3 Scatters trigger <b>10 Free Spins</b> with a <b>2x Win Multiplier</b>.
+• <b><color=#FFD54F>PAYOUT:</color></b> Total Win = <b>Line Multiplier x Current Bet Tier</b> summed across all hit lines."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7485,7 +7483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=#FFD700><b>ROYAL VEGAS SLOTS</b></color>
+  m_text: <color=#FFF8E1><b>GOLDEN SALOON SLOTS</b></color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
