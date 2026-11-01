@@ -21,3 +21,4 @@ namespace SlotMachine.Data
         Scatter = 2
     }
 }
+

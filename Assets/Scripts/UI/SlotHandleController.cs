@@ -18,7 +18,6 @@ namespace SlotMachine.UI
         [SerializeField] private AudioManager audioManager;
 
         [Header("Tuning")]
-        [SerializeField] private float pullThresholdY = -40f;
         [SerializeField] private float autoReleaseDelay = 0.25f;
 
         private static readonly int PullDownTrigger = Animator.StringToHash("PullDown");
@@ -90,3 +89,4 @@ namespace SlotMachine.UI
         }
     }
 }
+

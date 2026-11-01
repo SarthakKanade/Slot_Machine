@@ -228,3 +228,4 @@ The test suite in `Assets/Tests/EditMode/WinEvaluatorTests.cs` runs via the Unit
 
 - **Commit History**: Progressively committed across distinct, meaningful milestones (`chore`, `feat(data)`, `feat(logic)`, `feat(audio)`, `feat(reel)`, `feat(core)`, `feat(ui)`, `feat(scene)`, `docs`).
 - **Cleanliness**: External reference assets and temporary build caches are excluded via `.gitignore`.
+

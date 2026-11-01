@@ -30,3 +30,4 @@ namespace SlotMachine.Logic
         void SetSeed(int seed);
     }
 }
+

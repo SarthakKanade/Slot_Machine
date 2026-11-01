@@ -2,6 +2,7 @@
     "name": "SlotMachine.Tests",
     "rootNamespace": "SlotMachine.Tests",
     "references": [
+        "SlotMachine.Runtime",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],

@@ -37,7 +37,6 @@ namespace SlotMachine.Reel
         public event Action<int> OnAnticipationStarted;
 
         private bool _isSpinning;
-        private int _reelsStoppedCount;
 
         public bool IsSpinning => _isSpinning;
         public int ReelCount => reels != null ? reels.Length : 0;
@@ -79,7 +78,6 @@ namespace SlotMachine.Reel
         {
             if (_isSpinning) return;
             _isSpinning = true;
-            _reelsStoppedCount = 0;
 
             ResetAllHighlights();
             StartCoroutine(SpinSequenceRoutine(targetGrid, onComplete));
@@ -232,3 +230,4 @@ namespace SlotMachine.Reel
         }
     }
 }
+

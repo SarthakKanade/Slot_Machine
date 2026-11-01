@@ -52,3 +52,4 @@ namespace SlotMachine.Logic
         public bool IsMegaWin(float threshold) => TotalMultiplier >= threshold;
     }
 }
+

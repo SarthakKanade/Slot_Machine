@@ -25,7 +25,6 @@ namespace SlotMachine.Core
 
         [Header("Automation & Pacing")]
         [SerializeField] private float autoSpinDelay = 1.0f;
-        [SerializeField] private float winCelebrationDelay = 1.5f;
 
         private RNGManager _rng;
         private EconomyManager _economy;
@@ -513,3 +512,4 @@ namespace SlotMachine.Core
         }
     }
 }
+

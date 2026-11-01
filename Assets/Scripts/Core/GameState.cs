@@ -41,3 +41,4 @@ namespace SlotMachine.Core
         OutOfFunds
     }
 }
+
