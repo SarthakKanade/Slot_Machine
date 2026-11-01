@@ -44,6 +44,15 @@ namespace SlotMachine.UI
             HideImmediate();
         }
 
+        private void OnEnable()
+        {
+            transform.SetAsLastSibling();
+            if (ActivePanel != null && !ActivePanel.activeSelf)
+            {
+                ActivePanel.SetActive(true);
+            }
+        }
+
         public void Initialize(PaytableConfig config)
         {
             if (config == null || ActiveContainer == null || ActiveTemplate == null) return;

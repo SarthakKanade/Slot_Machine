@@ -84,9 +84,28 @@ namespace SlotMachine.UI
                     {
                         paytablePopup = FindFirstObjectByType<PaytableUI>(FindObjectsInactive.Include);
                     }
+
                     if (paytablePopup != null)
                     {
-                        paytablePopup.Toggle();
+                        paytablePopup.gameObject.SetActive(true);
+                        paytablePopup.Show();
+                    }
+                    else
+                    {
+                        var allRoots = UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects();
+                        foreach (var root in allRoots)
+                        {
+                            var matches = root.GetComponentsInChildren<Transform>(true);
+                            foreach (var tr in matches)
+                            {
+                                if (tr.gameObject.name == "Popup_Paytable")
+                                {
+                                    tr.gameObject.SetActive(true);
+                                    tr.SetAsLastSibling();
+                                    return;
+                                }
+                            }
+                        }
                     }
                 });
             }
