@@ -4417,8 +4417,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -220}
-  m_SizeDelta: {x: 1020, y: 160}
+  m_AnchoredPosition: {x: 0, y: -230}
+  m_SizeDelta: {x: 1040, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1234854569
 MonoBehaviour:
@@ -6655,7 +6655,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -30, y: -20}
+  m_SizeDelta: {x: -44, y: -24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703945560
 MonoBehaviour:
@@ -6677,11 +6677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><color=#FFD54F>LINES:</color></b> 5 Fixed Classic Paylines (Top, Center, Bottom, Diagonal Down, Diagonal Up).
-• <b><color=#FFD54F>EVALUATION:</color></b> Payouts calculate strictly from <b>Left to Right</b> starting on Reel 1.
-• <b><color=#FFD54F>WILD JOKER:</color></b> Substitutes for all normal symbols with a <b>100x</b> 3-match jackpot!
-• <b><color=#FFD54F>STAR SCATTER:</color></b> 3 Scatters trigger <b>10 Free Spins</b> with a <b>2x Win Multiplier</b>.
-• <b><color=#FFD54F>PAYOUT:</color></b> Total Win = <b>Line Multiplier x Current Bet Tier</b> summed across all hit lines."
+  m_text: "<line-height=130%><color=#FFE082><b>[1] 5 FIXED PAYLINES</b></color>\n- Paylines 1, 2 & 3 run horizontally across Top, Center, & Bottom rows.\n- Paylines 4 & 5 run diagonally (Top-Left to Bottom-Right & Bottom-Left to Top-Right).\n- All line combinations evaluate strictly <b>Left-to-Right</b> starting from Reel 1.\n\n<color=#FFE082><b>[2] WILD JOKER SUBSTITUTION</b></color>\n- Substitutes for all standard symbols to bridge and complete winning paylines.\n- 3 Wild Jokers aligned on any payline award the top fixed jackpot of <b>100x Bet</b>.\n\n<color=#FFE082><b>[3] STAR SCATTER & FREE SPINS</b></color>\n- 3 Star Scatters appearing anywhere on the 3x3 grid award <b>10 FREE SPINS</b>.\n- All winnings during the Free Spins bonus mode receive an active <b>2x Win Multiplier</b>.\n\n<color=#FFE082><b>[4] DYNAMIC PROGRESSIVE JACKPOT</b></color>\n- A portion of every spin feeds the live progressive jackpot pool atop the cabinet.\n- Hitting three top symbols on the center payline triggers the full progressive pot!\n\n<color=#FFE082><b>[5] TURBO MODE & CONTROLS</b></color>\n- Press <b>[T]</b> or tap Turbo to trigger high-speed reel spins with immediate feedback.\n- Press <b>[Space]</b> or pull the mechanical lever arm to spin."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
