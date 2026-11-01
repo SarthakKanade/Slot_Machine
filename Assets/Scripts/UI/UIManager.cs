@@ -76,9 +76,19 @@ namespace SlotMachine.UI
             if (maxBetButton != null) maxBetButton.onClick.AddListener(() => OnMaxBetRequested?.Invoke());
             if (gambleButton != null) gambleButton.onClick.AddListener(() => OnGambleRequested?.Invoke());
 
-            if (paytableButton != null && paytablePopup != null)
+            if (paytableButton != null)
             {
-                paytableButton.onClick.AddListener(paytablePopup.Show);
+                paytableButton.onClick.AddListener(() =>
+                {
+                    if (paytablePopup == null)
+                    {
+                        paytablePopup = FindFirstObjectByType<PaytableUI>(FindObjectsInactive.Include);
+                    }
+                    if (paytablePopup != null)
+                    {
+                        paytablePopup.Toggle();
+                    }
+                });
             }
 
             if (handleController != null)

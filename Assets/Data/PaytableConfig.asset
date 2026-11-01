@@ -17,6 +17,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 254e4cdd14c41a6488d73b1a00528e8d, type: 2}
   - {fileID: 11400000, guid: 15f512e7b512fdd4a85ac951a254c7a6, type: 2}
   - {fileID: 11400000, guid: d911b23c2c5ccef43a6996df8fbcf706, type: 2}
+  - {fileID: 11400000, guid: 308d88e082a88df4fa372bab322395b7, type: 2}
+  - {fileID: 11400000, guid: 2cbbde4e848bb6d43abdb115d9a5b024, type: 2}
   paylines:
   - lineName: Top Line
     lineId: 1
@@ -76,6 +78,6 @@ MonoBehaviour:
   freeSpinsWinMultiplier: 2
   bigWinMultiplierThreshold: 10
   megaWinMultiplierThreshold: 25
-  isGambleEnabled: 1
+  isGambleEnabled: 0
   maxGambleRounds: 5
 

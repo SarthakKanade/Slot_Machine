@@ -124,10 +124,12 @@ namespace SlotMachine.UI
 
         public void Show()
         {
+            gameObject.SetActive(true);
             if (ActivePanel != null)
             {
                 ActivePanel.SetActive(true);
             }
+            transform.SetAsLastSibling();
 
             if (AudioManager.Instance != null)
             {
