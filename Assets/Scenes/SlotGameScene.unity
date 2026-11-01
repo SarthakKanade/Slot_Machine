@@ -6693,18 +6693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<line-height=125%><color=#FFE082><b>[1] 5 FIXED PAYLINES</b></color>
-* Lines 1-3: Horizontal (Top, Center, Bottom).
-* Lines 4-5: Diagonals across 3x3 reel grid.
-* Pays evaluate Left-to-Right from Reel 1.
-
-<color=#FFE082><b>[2] WILD JOKER SUBSTITUTION</b></color>
-* Substitutes for all standard symbols.
-* 3 Wilds on any payline award <b>100x</b> jackpot!
-
-<color=#FFE082><b>[3] STAR SCATTER & FREE SPINS</b></color>
-* 3 Scatters anywhere award <b>10 FREE SPINS</b>.
-* All Free Spins wins receive <b>2x Win Multiplier</b>."
+  m_text: "<line-height=125%><color=#FFE082><b>[1] 5 FIXED PAYLINES</b></color>\n* Lines 1-3: Horizontal (Top, Center, Bottom).\n* Lines 4-5: Diagonals across 3x3 reel grid.\n* Pays evaluate Left-to-Right from Reel 1.\n\n<color=#FFE082><b>[2] WILD JOKER SUBSTITUTION</b></color>\n* Substitutes for all standard symbols.\n* 3 Wilds on any payline award <b>100x</b> jackpot!\n\n<color=#FFE082><b>[3] STAR SCATTER & FREE SPINS</b></color>\n* 3 Scatters anywhere award <b>10 FREE SPINS</b>.\n* All Free Spins wins receive <b>2x Win Multiplier</b>."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
