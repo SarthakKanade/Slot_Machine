@@ -15,7 +15,7 @@ MonoBehaviour:
   symbolId: symbol_wild
   symbolName: Wild Joker
   symbolType: 1
-  icon: {fileID: 21300000, guid: a1b2c3d4e5f60718293a4b5c6d7e8f90, type: 3}
+  icon: {fileID: 21300000, guid: 1c122b6419f3948e28c59982eca40da3, type: 3}
   highlightColor: {r: 0.9, g: 0.2, b: 1, a: 1}
   dropWeight: 30
   payout3Match: 100
