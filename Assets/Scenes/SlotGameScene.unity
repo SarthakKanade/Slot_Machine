@@ -6677,21 +6677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<line-height=130%><color=#FFE082><b>[1] 5 FIXED PAYLINES</b></color>
-- Lines 1, 2, 3: Horizontal (Top, Center, Bottom). Lines 4, 5: Diagonals.
-- All winning combinations evaluate strictly <b>Left-to-Right</b> starting from Reel 1.
-
-<color=#FFE082><b>[2] WILD JOKER SUBSTITUTION</b></color>
-- Bridges and substitutes for all normal symbols with a top <b>100x</b> 3-match jackpot!
-
-<color=#FFE082><b>[3] STAR SCATTER & FREE SPINS</b></color>
-- 3 Scatters anywhere award <b>10 FREE SPINS</b> with an active <b>2x Win Multiplier</b>.
-
-<color=#FFE082><b>[4] DYNAMIC PROGRESSIVE JACKPOT</b></color>
-- Every spin feeds the live pot; 3 top symbols on the center row win the whole pool!
-
-<color=#FFE082><b>[5] TURBO MODE & CONTROLS</b></color>
-- Press <b>[T]</b> for Turbo Mode. Press <b>[Space]</b> or pull the lever to spin."
+  m_text: "<line-height=130%><color=#FFE082><b>[1] 5 FIXED PAYLINES</b></color>\n* Lines 1, 2, 3: Horizontal (Top, Center, Bottom). Lines 4, 5: Diagonals.\n* All winning combinations evaluate strictly <b>Left-to-Right</b> starting from Reel 1.\n\n<color=#FFE082><b>[2] WILD JOKER SUBSTITUTION</b></color>\n* Bridges and substitutes for all normal symbols with a top <b>100x</b> 3-match jackpot!\n\n<color=#FFE082><b>[3] STAR SCATTER & FREE SPINS</b></color>\n* 3 Scatters anywhere award <b>10 FREE SPINS</b> with an active <b>2x Win Multiplier</b>.\n\n<color=#FFE082><b>[4] DYNAMIC PROGRESSIVE JACKPOT</b></color>\n* Every spin feeds the live pot; 3 top symbols on the center row win the whole pool!\n\n<color=#FFE082><b>[5] TURBO MODE & CONTROLS</b></color>\n* Press <b>[T]</b> for Turbo Mode. Press <b>[Space]</b> or pull the lever to spin."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
