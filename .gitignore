@@ -38,9 +38,8 @@ Thumbs.db
 
 # Build artifacts (Allow WebGL submission folder)
 /[Bb]uilds/
-/[Bb]uild/
-!/[Bb]uild/WebGL/
-!/[Bb]uild/WebGL/**
+/[Bb]uild/*
+!/[Bb]uild/WebGL
 
 # Internal reference material (do not commit reference game)
 Assets/reference_slot_game/
