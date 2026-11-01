@@ -88,15 +88,20 @@ namespace SlotMachine.Audio
                 SoundType.SpinStart => spinStartClip != null ? spinStartClip : _synthClips.GetValueOrDefault(type),
                 SoundType.ReelTick => reelTickClip != null ? reelTickClip : _synthClips.GetValueOrDefault(type),
                 SoundType.ReelStop => reelStopClip != null ? reelStopClip : _synthClips.GetValueOrDefault(type),
+                SoundType.ReelStopReel1 => _synthClips.GetValueOrDefault(type),
+                SoundType.ReelStopReel2 => _synthClips.GetValueOrDefault(type),
+                SoundType.ReelStopReel3 => _synthClips.GetValueOrDefault(type),
                 SoundType.WinSmall => winSmallClip != null ? winSmallClip : _synthClips.GetValueOrDefault(type),
                 SoundType.WinBig => winBigClip != null ? winBigClip : _synthClips.GetValueOrDefault(type),
                 SoundType.WinMega => winMegaClip != null ? winMegaClip : _synthClips.GetValueOrDefault(type),
+                SoundType.JackpotFanfare => _synthClips.GetValueOrDefault(type),
                 SoundType.FreeSpinsTrigger => freeSpinsClip != null ? freeSpinsClip : _synthClips.GetValueOrDefault(type),
                 SoundType.CoinsCollect => coinsCollectClip != null ? coinsCollectClip : _synthClips.GetValueOrDefault(type),
                 SoundType.Anticipation => anticipationClip != null ? anticipationClip : _synthClips.GetValueOrDefault(type),
                 SoundType.GambleCardFlip => gambleCardFlipClip != null ? gambleCardFlipClip : _synthClips.GetValueOrDefault(type),
                 SoundType.GambleWin => gambleWinClip != null ? gambleWinClip : _synthClips.GetValueOrDefault(type),
                 SoundType.GambleLose => gambleLoseClip != null ? gambleLoseClip : _synthClips.GetValueOrDefault(type),
+                SoundType.ScreenShakeImpact => _synthClips.GetValueOrDefault(type),
                 _ => null
             };
         }
@@ -108,15 +113,46 @@ namespace SlotMachine.Audio
             _synthClips[SoundType.SpinStart] = CreateSlideClip("SpinStart", 220f, 660f, 0.22f);
             _synthClips[SoundType.ReelTick] = CreateToneClip("Tick", 350f, 0.025f, WaveType.Noise);
             _synthClips[SoundType.ReelStop] = CreateSlideClip("ReelStop", 280f, 180f, 0.08f);
+            // Harmonic Triad progression: Note C (261.6Hz), Note E (329.6Hz), Note G (392Hz) with mechanical thud
+            _synthClips[SoundType.ReelStopReel1] = CreateChordStopClip("ReelStop_C", 261.63f, 0.10f);
+            _synthClips[SoundType.ReelStopReel2] = CreateChordStopClip("ReelStop_E", 329.63f, 0.10f);
+            _synthClips[SoundType.ReelStopReel3] = CreateChordStopClip("ReelStop_G", 392.00f, 0.12f);
+            _synthClips[SoundType.ScreenShakeImpact] = CreateSlideClip("Impact", 120f, 50f, 0.18f);
             _synthClips[SoundType.WinSmall] = CreateArpeggioClip("WinSmall", new float[] { 523f, 659f, 784f, 1046f }, 0.08f);
             _synthClips[SoundType.WinBig] = CreateArpeggioClip("WinBig", new float[] { 523f, 659f, 784f, 1046f, 1318f, 1568f }, 0.12f);
             _synthClips[SoundType.WinMega] = CreateArpeggioClip("WinMega", new float[] { 523f, 659f, 784f, 1046f, 1318f, 1568f, 2093f }, 0.14f);
+            _synthClips[SoundType.JackpotFanfare] = CreateArpeggioClip("Jackpot", new float[] { 523f, 659f, 784f, 1046f, 1318f, 1568f, 2093f, 2637f, 3136f }, 0.12f);
             _synthClips[SoundType.FreeSpinsTrigger] = CreateArpeggioClip("FreeSpins", new float[] { 440f, 554f, 659f, 880f, 1108f }, 0.15f);
             _synthClips[SoundType.CoinsCollect] = CreateToneClip("Coins", 1200f, 0.05f, WaveType.Sine);
             _synthClips[SoundType.Anticipation] = CreateSlideClip("Anticipation", 320f, 880f, 0.45f);
             _synthClips[SoundType.GambleCardFlip] = CreateSlideClip("CardFlip", 400f, 750f, 0.12f);
             _synthClips[SoundType.GambleWin] = CreateArpeggioClip("GambleWin", new float[] { 587f, 740f, 880f, 1174f }, 0.09f);
             _synthClips[SoundType.GambleLose] = CreateSlideClip("GambleLose", 320f, 130f, 0.35f);
+        }
+
+        private AudioClip CreateChordStopClip(string clipName, float frequency, float duration)
+        {
+            int sampleRate = 44100;
+            int totalSamples = Mathf.FloorToInt(sampleRate * duration);
+            float[] samples = new float[totalSamples];
+
+            for (int i = 0; i < totalSamples; i++)
+            {
+                float t = (float)i / sampleRate;
+                float progress = (float)i / totalSamples;
+                float envelope = 1f - progress;
+
+                // Mechanical click/thud element
+                float thud = Mathf.Sin(2f * Mathf.PI * Mathf.Lerp(160f, 60f, progress) * t) * Mathf.Exp(-t * 40f);
+                // Musical tone element
+                float tone = Mathf.Sin(2f * Mathf.PI * frequency * t) * envelope;
+
+                samples[i] = (thud * 0.45f + tone * 0.45f) * 0.35f;
+            }
+
+            AudioClip clip = AudioClip.Create(clipName, totalSamples, 1, sampleRate, false);
+            clip.SetData(samples, 0);
+            return clip;
         }
 
         private enum WaveType { Sine, Square, Triangle, Noise }

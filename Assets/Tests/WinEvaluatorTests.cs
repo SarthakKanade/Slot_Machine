@@ -79,6 +79,7 @@ namespace SlotMachine.Tests
             Assert.AreEqual("Center Line", result.WinningPaylines[0].Payline.LineName);
             Assert.AreEqual(50f, result.WinningPaylines[0].Multiplier);
             Assert.AreEqual(1000, result.TotalWinAmount); // 50 * 20 = 1000
+            Assert.IsTrue(result.IsJackpotWon);
         }
 
         [Test]

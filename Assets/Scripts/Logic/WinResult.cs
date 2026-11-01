@@ -46,8 +46,9 @@ namespace SlotMachine.Logic
         public List<SlotCoordinate> ScatterPositions { get; set; } = new List<SlotCoordinate>();
         public bool IsFreeSpinsTriggered { get; set; }
         public int FreeSpinsAwarded { get; set; }
+        public bool IsJackpotWon { get; set; }
 
-        public bool HasAnyWin => TotalWinAmount > 0 || IsFreeSpinsTriggered;
+        public bool HasAnyWin => TotalWinAmount > 0 || IsFreeSpinsTriggered || IsJackpotWon;
         public bool IsBigWin(float threshold) => TotalMultiplier >= threshold;
         public bool IsMegaWin(float threshold) => TotalMultiplier >= threshold;
     }

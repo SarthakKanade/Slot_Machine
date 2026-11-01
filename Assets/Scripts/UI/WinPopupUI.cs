@@ -73,6 +73,11 @@ namespace SlotMachine.UI
                 subDetailText.text = $"{result.WinningPaylines.Count} Winning Line(s) Hit!";
             }
 
+            if (result.TotalMultiplier >= 10f || result.IsJackpotWon)
+            {
+                CoinShowerFX.Instance?.PlayCoinShower(3f, result.TotalMultiplier >= 25f ? 45 : 30);
+            }
+
             if (_rollUpRoutine != null) StopCoroutine(_rollUpRoutine);
             _rollUpRoutine = StartCoroutine(RollUpCreditsRoutine(result.TotalWinAmount));
         }

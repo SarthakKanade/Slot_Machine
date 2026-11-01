@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using SlotMachine.Logic;
 using TMPro;
 using UnityEngine;
@@ -18,6 +19,8 @@ namespace SlotMachine.UI
         [SerializeField] private Image autoSpinButtonImage;
         [SerializeField] private Sprite autoSpinReadySprite;
         [SerializeField] private Sprite autoSpinActiveSprite;
+        [SerializeField] private Button turboButton;
+        [SerializeField] private TextMeshProUGUI turboButtonText;
         [SerializeField] private SlotHandleController handleController;
 
         [Header("Bet Controls")]
@@ -34,6 +37,7 @@ namespace SlotMachine.UI
         [SerializeField] private TextMeshProUGUI betText;
         [SerializeField] private TextMeshProUGUI lastWinText;
         [SerializeField] private TextMeshProUGUI statusMessageText;
+        [SerializeField] private TextMeshProUGUI jackpotText;
 
         [Header("Free Spins Banner")]
         [SerializeField] private GameObject freeSpinsBanner;
@@ -43,10 +47,12 @@ namespace SlotMachine.UI
         [SerializeField] private PaytableUI paytablePopup;
         [SerializeField] private WinPopupUI winPopup;
         [SerializeField] private GambleUI gamblePopup;
+        [SerializeField] private PaylineVisualizer paylineVisualizer;
 
         // User Intent Events
         public event Action OnSpinRequested;
         public event Action OnAutoSpinToggled;
+        public event Action<bool> OnTurboToggled;
         public event Action OnIncreaseBetRequested;
         public event Action OnDecreaseBetRequested;
         public event Action OnMaxBetRequested;
@@ -55,11 +61,16 @@ namespace SlotMachine.UI
         public PaytableUI PaytablePopup => paytablePopup;
         public WinPopupUI WinPopup => winPopup;
         public GambleUI GamblePopup => gamblePopup;
+        public bool IsTurboActive => _isTurboActive;
+
+        private bool _isTurboActive = false;
+        private Coroutine _breakdownRoutine;
 
         private void Awake()
         {
             if (spinButton != null) spinButton.onClick.AddListener(() => OnSpinRequested?.Invoke());
             if (autoSpinButton != null) autoSpinButton.onClick.AddListener(() => OnAutoSpinToggled?.Invoke());
+            if (turboButton != null) turboButton.onClick.AddListener(ToggleTurbo);
             if (betIncreaseButton != null) betIncreaseButton.onClick.AddListener(() => OnIncreaseBetRequested?.Invoke());
             if (betDecreaseButton != null) betDecreaseButton.onClick.AddListener(() => OnDecreaseBetRequested?.Invoke());
             if (maxBetButton != null) maxBetButton.onClick.AddListener(() => OnMaxBetRequested?.Invoke());
@@ -84,6 +95,19 @@ namespace SlotMachine.UI
             {
                 freeSpinsBanner.SetActive(false);
             }
+
+            if (paylineVisualizer == null)
+            {
+                paylineVisualizer = GetComponent<PaylineVisualizer>() ?? gameObject.AddComponent<PaylineVisualizer>();
+            }
+
+            if (CoinShowerFX.Instance == null)
+            {
+                var coinGo = new GameObject("[Auto] CoinShowerFX", typeof(RectTransform), typeof(CoinShowerFX));
+                coinGo.transform.SetParent(transform, false);
+            }
+
+            UpdateTurboUI();
         }
 
         private void Update()
@@ -95,6 +119,36 @@ namespace SlotMachine.UI
                 {
                     OnSpinRequested?.Invoke();
                 }
+            }
+
+            // 'T' toggles Turbo Mode
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                ToggleTurbo();
+            }
+        }
+
+        public void ToggleTurbo()
+        {
+            _isTurboActive = !_isTurboActive;
+            UpdateTurboUI();
+            OnTurboToggled?.Invoke(_isTurboActive);
+        }
+
+        private void UpdateTurboUI()
+        {
+            if (turboButtonText != null)
+            {
+                turboButtonText.text = _isTurboActive ? "⚡ TURBO: ON" : "TURBO: OFF";
+                turboButtonText.color = _isTurboActive ? new Color(1f, 0.85f, 0.1f) : Color.white;
+            }
+        }
+
+        public void UpdateJackpot(int newJackpot)
+        {
+            if (jackpotText != null)
+            {
+                jackpotText.text = $"★ JACKPOT: {newJackpot:N0} ★";
             }
         }
 
@@ -176,6 +230,46 @@ namespace SlotMachine.UI
             if (autoSpinButtonImage != null)
             {
                 autoSpinButtonImage.sprite = isActive ? autoSpinActiveSprite : autoSpinReadySprite;
+            }
+        }
+
+        public void DisplayWinBreakdown(WinResult result)
+        {
+            if (_breakdownRoutine != null)
+            {
+                StopCoroutine(_breakdownRoutine);
+                _breakdownRoutine = null;
+            }
+
+            if (result == null || result.WinningPaylines == null || result.WinningPaylines.Count == 0) return;
+
+            paylineVisualizer?.DisplayWinningPaylines(result.WinningPaylines);
+            _breakdownRoutine = StartCoroutine(CycleWinBreakdownRoutine(result));
+        }
+
+        public void StopWinBreakdown()
+        {
+            if (_breakdownRoutine != null)
+            {
+                StopCoroutine(_breakdownRoutine);
+                _breakdownRoutine = null;
+            }
+
+            paylineVisualizer?.ClearAll();
+        }
+
+        private IEnumerator CycleWinBreakdownRoutine(WinResult result)
+        {
+            var lines = result.WinningPaylines;
+            int idx = 0;
+            while (true)
+            {
+                var win = lines[idx % lines.Count];
+                string symName = win.WinningSymbol != null ? win.WinningSymbol.SymbolName : "Match";
+                SetStatusMessage($"<color=#{ColorUtility.ToHtmlStringRGB(win.Payline.LineColor)}>{win.Payline.LineName.ToUpper()}</color>: {win.MatchCount}x {symName} -> <color=#FFD700>+{win.WinAmount:N0}</color> ({win.Multiplier:0.#}x)");
+
+                yield return new WaitForSeconds(1.6f);
+                idx++;
             }
         }
 

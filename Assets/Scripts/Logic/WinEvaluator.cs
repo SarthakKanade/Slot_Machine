@@ -74,6 +74,12 @@ namespace SlotMachine.Logic
                                 lineWinAmount,
                                 winningPositions
                             ));
+
+                            // Center Line 3-match Sevens triggers the Progressive Jackpot!
+                            if (payline.LineId == 2 && matchCount >= 3 && winningSymbol.SymbolId == "lucky_seven")
+                            {
+                                result.IsJackpotWon = true;
+                            }
                         }
                     }
                 }

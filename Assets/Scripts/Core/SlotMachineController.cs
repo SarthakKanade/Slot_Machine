@@ -71,6 +71,11 @@ namespace SlotMachine.Core
 
             paytableConfig.InitializeDefaultPaylines();
 
+            if (Utils.ScreenShakeController.Instance == null)
+            {
+                new GameObject("[Auto] ScreenShakeController", typeof(Utils.ScreenShakeController));
+            }
+
             _rng = new RNGManager();
             _economy = new EconomyManager(paytableConfig);
             _isInitialized = true;
@@ -79,6 +84,10 @@ namespace SlotMachine.Core
             {
                 uiManager.OnSpinRequested += HandleSpinRequested;
                 uiManager.OnAutoSpinToggled += HandleAutoSpinToggled;
+                uiManager.OnTurboToggled += (isTurbo) =>
+                {
+                    if (reelController != null) reelController.IsTurboMode = isTurbo;
+                };
                 uiManager.OnIncreaseBetRequested += () => _economy.IncreaseBet();
                 uiManager.OnDecreaseBetRequested += () => _economy.DecreaseBet();
                 uiManager.OnMaxBetRequested += () => _economy.SetMaxBet();
@@ -87,6 +96,7 @@ namespace SlotMachine.Core
                 _economy.OnBalanceChanged += uiManager.UpdateBalance;
                 _economy.OnBetChanged += uiManager.UpdateBet;
                 _economy.OnFreeSpinsChanged += uiManager.UpdateFreeSpinsDisplay;
+                _economy.OnJackpotChanged += uiManager.UpdateJackpot;
 
                 if (uiManager.PaytablePopup != null)
                 {
@@ -99,6 +109,7 @@ namespace SlotMachine.Core
                 reelController.Initialize(paytableConfig, _rng);
                 reelController.OnReelClickTick += HandleReelClickTick;
                 reelController.OnAnticipationStarted += HandleAnticipationStarted;
+                reelController.OnIndividualReelStopped += HandleIndividualReelStopped;
             }
 
             _economy.Initialize();
@@ -111,6 +122,27 @@ namespace SlotMachine.Core
             {
                 reelController.OnReelClickTick -= HandleReelClickTick;
                 reelController.OnAnticipationStarted -= HandleAnticipationStarted;
+                reelController.OnIndividualReelStopped -= HandleIndividualReelStopped;
+            }
+        }
+
+        private void HandleIndividualReelStopped(int reelIdx)
+        {
+            if (audioManager == null) return;
+            switch (reelIdx)
+            {
+                case 0:
+                    audioManager.PlaySound(SoundType.ReelStopReel1, 0.75f);
+                    break;
+                case 1:
+                    audioManager.PlaySound(SoundType.ReelStopReel2, 0.85f);
+                    break;
+                case 2:
+                    audioManager.PlaySound(SoundType.ReelStopReel3, 1.0f);
+                    break;
+                default:
+                    audioManager.PlaySound(SoundType.ReelStop, 0.8f);
+                    break;
             }
         }
 
@@ -236,6 +268,7 @@ namespace SlotMachine.Core
             if (uiManager != null)
             {
                 uiManager.SetGambleButtonVisible(false);
+                uiManager.StopWinBreakdown();
             }
 
             OnSpinInitiated?.Invoke();
@@ -277,6 +310,21 @@ namespace SlotMachine.Core
                 _economy.DecrementFreeSpin();
             }
 
+            if (result.IsJackpotWon)
+            {
+                int jackpotWon = _economy.AwardJackpot();
+                if (audioManager != null)
+                {
+                    audioManager.PlaySound(SoundType.JackpotFanfare, 1.0f);
+                }
+                Utils.ScreenShakeController.Instance?.Shake(16f, 0.65f);
+                if (uiManager != null)
+                {
+                    uiManager.SetStatusMessage($"<color=#FFD700>★★★ PROGRESSIVE JACKPOT! +{jackpotWon:N0} CREDITS! ★★★</color>");
+                }
+                yield return new WaitForSeconds(1.5f);
+            }
+
             if (result.IsFreeSpinsTriggered)
             {
                 if (audioManager != null)
@@ -307,6 +355,7 @@ namespace SlotMachine.Core
                 if (uiManager != null)
                 {
                     uiManager.UpdateLastWin(result.TotalWinAmount);
+                    uiManager.DisplayWinBreakdown(result);
                 }
 
                 PlayWinCelebrationSound(result);
@@ -373,10 +422,12 @@ namespace SlotMachine.Core
             if (result.IsMegaWin(paytableConfig.MegaWinMultiplierThreshold))
             {
                 audioManager.PlaySound(SoundType.WinMega, 1.0f);
+                Utils.ScreenShakeController.Instance?.Shake(13f, 0.45f);
             }
             else if (result.IsBigWin(paytableConfig.BigWinMultiplierThreshold))
             {
                 audioManager.PlaySound(SoundType.WinBig, 0.9f);
+                Utils.ScreenShakeController.Instance?.Shake(8f, 0.3f);
             }
             else
             {
@@ -508,6 +559,7 @@ namespace SlotMachine.Core
             if (uiManager != null)
             {
                 uiManager.SetGambleButtonVisible(false);
+                uiManager.StopWinBreakdown();
             }
         }
     }

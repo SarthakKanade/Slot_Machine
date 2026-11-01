@@ -34,11 +34,14 @@ namespace SlotMachine.Reel
         public event Action OnAllReelsSpinStarted;
         public event Action OnAllReelsSpinCompleted;
         public event Action<int> OnReelClickTick;
+        public event Action<int> OnIndividualReelStopped;
         public event Action<int> OnAnticipationStarted;
 
         private bool _isSpinning;
+        private bool _isTurboMode;
 
         public bool IsSpinning => _isSpinning;
+        public bool IsTurboMode { get => _isTurboMode; set => _isTurboMode = value; }
         public int ReelCount => reels != null ? reels.Length : 0;
 
         public void Initialize(PaytableConfig config, IRandomNumberGenerator rng)
@@ -87,18 +90,22 @@ namespace SlotMachine.Reel
         {
             OnAllReelsSpinStarted?.Invoke();
 
+            float activeStartStagger = _isTurboMode ? spinStartStagger * 0.4f : spinStartStagger;
+            float activeMinDuration = _isTurboMode ? minSpinDuration * 0.35f : minSpinDuration;
+            float activeStopStagger = _isTurboMode ? reelStopStagger * 0.35f : reelStopStagger;
+
             // 1. Staggered Start
             for (int i = 0; i < reels.Length; i++)
             {
                 reels[i].StartSpin();
-                if (spinStartStagger > 0f)
+                if (activeStartStagger > 0f)
                 {
-                    yield return new WaitForSeconds(spinStartStagger);
+                    yield return new WaitForSeconds(activeStartStagger);
                 }
             }
 
             // 2. Minimum spin spin duration
-            yield return new WaitForSeconds(minSpinDuration);
+            yield return new WaitForSeconds(activeMinDuration);
 
             // 3. Staggered Stopping with Scatter Anticipation
             int scatterCountLanded = 0;
@@ -125,7 +132,7 @@ namespace SlotMachine.Reel
                 {
                     OnAnticipationStarted?.Invoke(reelIdx);
                     HighlightAnticipationScatters(targetGrid, i);
-                    yield return new WaitForSeconds(anticipationSpinDuration);
+                    yield return new WaitForSeconds(_isTurboMode ? anticipationSpinDuration * 0.6f : anticipationSpinDuration);
                 }
 
                 bool reelDone = false;
@@ -136,6 +143,7 @@ namespace SlotMachine.Reel
                     {
                         reels[reelIdx].OnReelSpinStopped -= onReelStop;
                         reelDone = true;
+                        OnIndividualReelStopped?.Invoke(reelIdx);
                     }
                 };
 
@@ -147,9 +155,15 @@ namespace SlotMachine.Reel
                     yield return null;
                 }
 
-                if (reelStopStagger > 0f && i < reels.Length - 1)
+                // Add mechanical impact feel on landing
+                if (reelIdx == reels.Length - 1)
                 {
-                    yield return new WaitForSeconds(reelStopStagger);
+                    Utils.ScreenShakeController.Instance?.Punch(Vector2.down, _isTurboMode ? 7f : 11f, 0.22f);
+                }
+
+                if (activeStopStagger > 0f && i < reels.Length - 1)
+                {
+                    yield return new WaitForSeconds(activeStopStagger);
                 }
             }
 

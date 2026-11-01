@@ -10,15 +10,19 @@ namespace SlotMachine.Audio
         SpinStart,
         ReelTick,
         ReelStop,
+        ReelStopReel1,
+        ReelStopReel2,
+        ReelStopReel3,
         WinSmall,
         WinBig,
         WinMega,
+        JackpotFanfare,
         FreeSpinsTrigger,
         CoinsCollect,
         Anticipation,
         GambleCardFlip,
         GambleWin,
-        GambleLose
+        GambleLose,
+        ScreenShakeImpact
     }
 }
-

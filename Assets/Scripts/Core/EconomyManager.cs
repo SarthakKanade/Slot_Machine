@@ -16,16 +16,19 @@ namespace SlotMachine.Core
         private int _currentBetIndex;
         private int _freeSpinsRemaining;
         private float _freeSpinsMultiplier = 1f;
+        private int _jackpotAmount = 10000;
 
         // Public Observers
         public event Action<int> OnBalanceChanged;
         public event Action<int> OnBetChanged;
         public event Action<int, float> OnFreeSpinsChanged;
+        public event Action<int> OnJackpotChanged;
 
         public int CurrentBalance => _currentBalance;
         public int CurrentBet => _config.BetAmounts[_currentBetIndex];
         public int CurrentBetIndex => _currentBetIndex;
         public int FreeSpinsRemaining => _freeSpinsRemaining;
+        public int JackpotAmount => _jackpotAmount;
         public float ActiveMultiplier => IsInFreeSpins ? _freeSpinsMultiplier : 1f;
         public bool IsInFreeSpins => _freeSpinsRemaining > 0;
 
@@ -41,6 +44,7 @@ namespace SlotMachine.Core
             OnBalanceChanged?.Invoke(_currentBalance);
             OnBetChanged?.Invoke(CurrentBet);
             OnFreeSpinsChanged?.Invoke(_freeSpinsRemaining, _freeSpinsMultiplier);
+            OnJackpotChanged?.Invoke(_jackpotAmount);
         }
 
         public bool CanAffordSpin()
@@ -59,11 +63,23 @@ namespace SlotMachine.Core
             if (_currentBalance >= CurrentBet)
             {
                 _currentBalance -= CurrentBet;
+                // Add 5% contribution to progressive jackpot
+                _jackpotAmount += Mathf.Max(1, Mathf.RoundToInt(CurrentBet * 0.05f));
                 OnBalanceChanged?.Invoke(_currentBalance);
+                OnJackpotChanged?.Invoke(_jackpotAmount);
                 return true;
             }
 
             return false;
+        }
+
+        public int AwardJackpot()
+        {
+            int won = _jackpotAmount;
+            AwardWin(won);
+            _jackpotAmount = 10000;
+            OnJackpotChanged?.Invoke(_jackpotAmount);
+            return won;
         }
 
         public void AwardWin(int amount)
